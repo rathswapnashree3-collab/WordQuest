@@ -160,3 +160,79 @@ body.dark-theme .hero-image {
   .shop-grid, .avatar-grid { grid-template-columns: minmax(0, 1fr); }
   .game-tools .button { flex: 1 1 auto; }
 }
+
+/* Phone refinement: give the header its own navigation row and keep hero art clear of text. */
+@media (max-width: 760px) {
+  .app-shell { width: 100%; padding-inline: 14px; }
+  .topbar {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 0 8px;
+  }
+  .brand { order: 1; flex: 0 1 auto; min-width: 0; }
+  .header-actions { order: 2; flex: 0 0 auto; margin-left: auto; }
+  .main-nav {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0;
+    justify-content: stretch;
+    gap: 5px;
+  }
+  .nav-link { flex: 1 1 0; min-width: 0; min-height: 42px; padding: 9px 6px; text-align: center; font-size: 13px; }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    min-height: 0;
+    padding: 20px 16px;
+  }
+  .hero-copy { order: 1; width: 100%; max-width: none; z-index: 1; }
+  .hero h1 { max-width: 15ch; font-size: clamp(30px, 7.8vw, 38px); line-height: 1.12; }
+  .hero-copy > p { max-width: 36ch; }
+  .hero-art {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: 128px;
+    min-height: 128px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    transform: none;
+    opacity: 1;
+  }
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: .82;
+    mix-blend-mode: normal;
+    filter: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  body.dark-theme .hero-image { opacity: .82 !important; mix-blend-mode: normal !important; filter: none !important; }
+  body:not(.dark-theme) .hero-image { opacity: .72; mix-blend-mode: normal; filter: none; }
+  .home-tabs, .progress-tabs { max-width: 100%; overflow-x: auto; }
+  .setup-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 380px) {
+  .app-shell { padding-inline: 10px; }
+  .topbar { gap: 6px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .header-actions { gap: 4px; }
+  .profile-button { padding-inline: 6px; }
+  .hero { padding: 18px 13px; }
+  .setup-grid { grid-template-columns: minmax(0, 1fr); }
+}
