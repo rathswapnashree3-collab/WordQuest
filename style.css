@@ -87,3 +87,8 @@ body{font-size:16px}
 @media(max-width:680px){.game-header h1{font-size:25px}.game-word-list li{font-size:12px}.letter-cell{font-size:clamp(10px,3.1vw,14px)}}
 
 .game-word-list li.done{cursor:pointer}.game-word-list li.done:hover,.game-word-list li.done:focus-visible{outline:2px solid var(--teal);outline-offset:1px}.game-word-list li[role="button"]:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+body.dark-theme .hero-image {
+  opacity: 0.48 !important;
+  mix-blend-mode: screen !important;
+  filter: saturate(0.7) brightness(1.05) !important;
+}
